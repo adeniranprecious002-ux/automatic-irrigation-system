@@ -415,6 +415,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Note**: This is an educational project. For commercial agricultural applications, consult with agricultural engineers and comply with local regulations.
 
-**Star ⭐ this repository if you find it helpful!**
-#   a u t o m a t i c - i r r i g a t i o n - s y s t e m  
+**Star ⭐ this repository if you find it helpful!** 
+ 
  
