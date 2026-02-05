@@ -411,10 +411,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Sensors**: 3 analog moisture sensors
 - **Power Consumption**: < 5W (idle), ~15W (active)
 
+## Star ⭐ this repository if you find it helpful!
+
 ---
 
 **Note**: This is an educational project. For commercial agricultural applications, consult with agricultural engineers and comply with local regulations.
-
-## Star ⭐ this repository if you find it helpful! 
- 
- 
