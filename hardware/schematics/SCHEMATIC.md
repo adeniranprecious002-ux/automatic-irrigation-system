@@ -274,6 +274,7 @@ Where Ax = A0, A3, or A5 depending on sensor
 ```
 
 **Sensor Placement:**
+
 - **Sensor 1 (A0):** Reservoir water tank
 - **Sensor 2 (A3):** Soil/plant area
 - **Sensor 3 (A5):** Overhead water tank
@@ -356,6 +357,7 @@ Relay Contact Configuration:
 **Component Details:**
 
 **Transistor BC547 Pinout:**
+
 ```
     Flat side facing you
     ┌─────────┐
@@ -371,6 +373,7 @@ Relay Contact Configuration:
 ```
 
 **1N4007 Diode:**
+
 ```
     ┌──────────┐
 ────┤          ├────

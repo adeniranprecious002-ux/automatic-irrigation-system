@@ -87,6 +87,7 @@ K (16)   │ GND         │ Backlight cathode
 ```
 
 **Contrast Control:**
+
 - Connect 10kΩ potentiometer:
   - Terminal 1 → 5V
   - Terminal 2 → LCD V0 (Pin 3)
@@ -105,6 +106,7 @@ A0 (OUT)   │ A0/A3/A5 (respective sensor)
 ```
 
 **Sensor Locations:**
+
 - **A0**: Reservoir water level sensor
 - **A3**: Soil moisture sensor (main)
 - **A5**: Overhead tank water level sensor
@@ -121,6 +123,7 @@ IN2       │ Arduino Pin 12  │ Valve control signal
 ```
 
 **Relay 1 (Pump):**
+
 ```
 Common (COM) → 12V Power Supply (+)
 Normally Open (NO) → Water Pump (+)
@@ -128,6 +131,7 @@ Pump (-) → Power Supply GND
 ```
 
 **Relay 2 (Valve):**
+
 ```
 Common (COM) → 12V Power Supply (+)
 Normally Open (NO) → Solenoid Valve (+)
@@ -282,23 +286,27 @@ When debugging, measure voltage at these points:
 ## Troubleshooting Connection Issues
 
 ### LCD Not Displaying
+
 - Check contrast potentiometer (try rotating fully)
 - Verify 5V and GND connections
 - Check data pin connections (D4-D7)
 - Verify RS and E pin connections
 
 ### Sensors Reading Constant Values
+
 - Check VCC and GND connections
 - Verify analog pin connections (A0, A3, A5)
 - Test sensor with multimeter (should vary 0-5V)
 
 ### Relays Not Switching
+
 - Check relay module VCC (should be 5V)
 - Verify control signal pins (12, 13)
 - Test with LED instead of relay
 - Check for adequate power supply current
 
 ### Pump/Valve Not Working
+
 - Check 12V supply to relay COM
 - Verify relay switching (listen for click)
 - Test pump/valve directly with 12V
@@ -316,6 +324,7 @@ When debugging, measure voltage at these points:
 ## PCB Design Tips (Future)
 
 For permanent installation:
+
 - Minimum trace width: 0.5mm for signals, 1mm for power
 - Keep sensor traces away from high-current traces
 - Add test points for all critical signals

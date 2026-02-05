@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-01-15
 
 ### Added
+
 - Initial release of the Automatic Irrigation System
 - Arduino Uno based controller
 - Three moisture sensor support (reservoir, soil, overhead tank)
@@ -28,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contributing guidelines
 
 ### Hardware Features
+
 - 2-channel relay control
 - Support for 12V DC pump and solenoid valve
 - Three analog sensor inputs (A0, A3, A5)
@@ -36,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Power supply flexibility (USB or 12V adapter)
 
 ### Software Features
+
 - Configurable moisture thresholds
 - Automatic state management
 - Real-time percentage display
@@ -45,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Serial debugging capability (optional)
 
 ### Documentation
+
 - Comprehensive README with badges and TOC
 - Detailed circuit connections
 - Component specifications and BOM
@@ -55,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Theoretical background
 
 ### Known Issues
+
 - Resistive sensors may corrode over time (recommend capacitive alternative)
 - No remote monitoring capability (planned for future release)
 - Single-zone irrigation only
@@ -63,6 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned Features
+
 - [ ] WiFi/IoT connectivity (ESP8266/ESP32)
 - [ ] Mobile app for remote monitoring
 - [ ] Web dashboard
@@ -75,6 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] Predictive watering based on weather forecast
 
 ### Potential Improvements
+
 - [ ] Replace resistive sensors with capacitive sensors
 - [ ] Add temperature and humidity sensors
 - [ ] Implement PID control for smoother operation
@@ -86,6 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] OTA (Over-The-Air) firmware updates
 
 ### Documentation Enhancements
+
 - [ ] Video tutorials
 - [ ] Multiple language support
 - [ ] More troubleshooting scenarios
@@ -98,6 +106,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version History
 
 ### [1.0.0] - 2024-01-15
+
 - Initial public release
 - Based on University of Abuja final year project
 - Fully functional automatic irrigation system
@@ -108,13 +117,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## How to Use This Changelog
 
 ### For Contributors
+
 When adding features or fixing bugs:
+
 1. Add your changes under the `[Unreleased]` section
 2. Use subsections: Added, Changed, Deprecated, Removed, Fixed, Security
 3. Keep descriptions clear and concise
 4. Reference issue numbers when applicable
 
 ### For Users
+
 - Check `[Unreleased]` for upcoming features
 - Review version history for changes
 - Check `Known Issues` before reporting bugs
@@ -130,6 +142,7 @@ Given a version number MAJOR.MINOR.PATCH:
 - **PATCH**: Backwards compatible bug fixes
 
 Examples:
+
 - `1.0.0` → `1.0.1`: Bug fix
 - `1.0.0` → `1.1.0`: New feature added
 - `1.0.0` → `2.0.0`: Breaking changes

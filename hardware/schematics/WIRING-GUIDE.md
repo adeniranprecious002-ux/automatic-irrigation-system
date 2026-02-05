@@ -35,6 +35,7 @@ This is a simplified, easy-to-follow wiring guide for the Automatic Irrigation S
 ## 1. ARDUINO UNO CONNECTIONS
 
 ### Power Connections
+
 ```
 Arduino 5V Pin  ──→  +5V Rail (powers sensors & LCD)
 Arduino GND Pin ──→  Common Ground
@@ -42,6 +43,7 @@ Arduino VIN     ──→  Optional: 7-12V input
 ```
 
 ### Sensor Inputs (Analog)
+
 ```
 Arduino A0 ──→ Reservoir Sensor Module (A0 pin)
 Arduino A3 ──→ Soil Moisture Sensor Module (A0 pin)
@@ -49,6 +51,7 @@ Arduino A5 ──→ Overhead Tank Sensor Module (A0 pin)
 ```
 
 ### LCD Display (Digital)
+
 ```
 Arduino Pin 5  ──→ LCD D7
 Arduino Pin 6  ──→ LCD D6
@@ -59,6 +62,7 @@ Arduino Pin 11 ──→ LCD RS (Register Select)
 ```
 
 ### Control Outputs (Digital)
+
 ```
 Arduino Pin 1  ──→ Buzzer (+) via 220Ω resistor
 Arduino Pin 12 ──→ Transistor Q1 Base (Valve Control)
@@ -69,7 +73,7 @@ Arduino Pin 13 ──→ Transistor Q2 Base (Pump Control)
 
 ## 2. MOISTURE SENSOR MODULES (×3)
 
-### Each sensor module has 4 pins:
+### Each sensor module has 4 pins
 
 ```
 Sensor Module Pinout:
@@ -85,7 +89,8 @@ Pin 3 (A0)  ──→ Arduino Analog Pin (A0, A3, or A5)
 Pin 4 (D0)  ──→ Leave UNCONNECTED (not used)
 ```
 
-### Sensor Assignment:
+### Sensor Assignment
+
 ```
 Sensor #1: Connect A0 to Arduino A0 (Reservoir Level)
 Sensor #2: Connect A0 to Arduino A3 (Soil Moisture)
@@ -96,7 +101,7 @@ Sensor #3: Connect A0 to Arduino A5 (Overhead Tank)
 
 ## 3. LCD DISPLAY (16×2)
 
-### LCD has 16 pins:
+### LCD has 16 pins
 
 ```
 Full LCD Pinout (back view):
@@ -124,7 +129,8 @@ Pin 15 (A)   ──→ +5V via 220Ω resistor (backlight)
 Pin 16 (K)   ──→ GND (backlight)
 ```
 
-### Contrast Potentiometer (10kΩ):
+### Contrast Potentiometer (10kΩ)
+
 ```
 Terminal 1 ──→ +5V
 Wiper      ──→ LCD Pin 3 (V0)
@@ -137,7 +143,7 @@ Adjust this to make text visible!
 
 ## 4. RELAY DRIVER CIRCUITS (×2)
 
-### Circuit for EACH relay (identical):
+### Circuit for EACH relay (identical)
 
 ```
 RELAY 1 - VALVE CONTROL (Pin 12)
@@ -201,6 +207,7 @@ Pump (−) ──→ GND
 ```
 
 ### Important: Diode Orientation
+
 ```
 1N4007 Diode must be placed ACROSS the relay coil:
 
@@ -224,7 +231,7 @@ Anode           → Collector
 
 ## 5. BUZZER/ALARM
 
-### Simple Connection:
+### Simple Connection
 
 ```
 Arduino Pin 1
@@ -286,9 +293,10 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 
 ## 7. COMPLETE WIRING CHECKLIST
 
-### Step-by-step Assembly:
+### Step-by-step Assembly
 
 #### Step 1: Power Rails
+
 ```
 ☐ Set up +5V power rail
 ☐ Set up +12V power rail  
@@ -297,6 +305,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 2: Arduino Connections
+
 ```
 ☐ Connect Arduino 5V to +5V rail
 ☐ Connect Arduino GND to GND rail
@@ -304,6 +313,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 3: LCD Display
+
 ```
 ☐ Connect LCD power (VSS, VDD)
 ☐ Connect contrast pot (10kΩ)
@@ -314,6 +324,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 4: Sensors
+
 ```
 ☐ Connect Sensor 1 (VCC, GND, A0 to Arduino A0)
 ☐ Connect Sensor 2 (VCC, GND, A0 to Arduino A3)
@@ -322,6 +333,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 5: Relay Drivers
+
 ```
 ☐ Build Relay 1 circuit (transistor, resistor, diode)
 ☐ Build Relay 2 circuit (transistor, resistor, diode)
@@ -331,6 +343,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 6: Loads
+
 ```
 ☐ Connect +12V to both Relay COM terminals
 ☐ Connect Valve to Relay 1 NO terminal
@@ -340,6 +353,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 7: Buzzer
+
 ```
 ☐ Connect Arduino Pin 1 to 220Ω resistor
 ☐ Connect resistor to Buzzer (+)
@@ -348,6 +362,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ```
 
 #### Step 8: Final Checks
+
 ```
 ☐ Double-check all power connections
 ☐ Verify no short circuits
@@ -361,6 +376,7 @@ Note: Use ACTIVE buzzer (has built-in oscillator)
 ## 8. QUICK TROUBLESHOOTING
 
 ### Power Issues
+
 ```
 Problem: Nothing works
 Check:
@@ -371,6 +387,7 @@ Check:
 ```
 
 ### LCD Issues
+
 ```
 Problem: LCD blank
 Check:
@@ -386,6 +403,7 @@ Check:
 ```
 
 ### Sensor Issues
+
 ```
 Problem: Sensor reads constant value
 Check:
@@ -396,6 +414,7 @@ Check:
 ```
 
 ### Relay Issues
+
 ```
 Problem: Relay doesn't click
 Check:
@@ -416,7 +435,7 @@ Check:
 
 ## 9. SAFETY WARNINGS
 
-### ⚠️ CRITICAL SAFETY POINTS:
+### ⚠️ CRITICAL SAFETY POINTS
 
 ```
 ☐ NEVER mix up +5V and +12V connections
@@ -435,7 +454,7 @@ Check:
 
 ## 10. COMPONENT SUMMARY
 
-### Shopping List with Quantities:
+### Shopping List with Quantities
 
 ```
 Arduino & Display:

@@ -110,6 +110,7 @@ Connection sequence:
 ```
 
 **Testing LCD:**
+
 1. Upload the LCD test sketch (see examples folder)
 2. Adjust potentiometer to see characters clearly
 3. You should see "Hello World" or test message
@@ -136,6 +137,7 @@ Sensor 3 (Overhead Tank - A5):
 ```
 
 **Testing Sensors:**
+
 1. Upload sensor test sketch
 2. Open Serial Monitor (9600 baud)
 3. Dry sensor should read ~1000
@@ -161,6 +163,7 @@ For testing (use LEDs instead of pump/valve):
 ```
 
 **Testing Relays:**
+
 1. Listen for clicking sound when relay activates
 2. LED should light up when relay is ON
 3. Test both channels independently
@@ -183,6 +186,7 @@ OR (for louder sound):
 #### Step 7: Power Supply Setup
 
 **For breadboard testing, use Arduino USB power:**
+
 1. Connect Arduino to computer via USB
 2. Arduino provides 5V to all components
 3. Total current should be < 500mA
@@ -206,6 +210,7 @@ Option 2: Regulated 12V supply
 #### Step 1: PCB Planning (Optional)
 
 For permanent installation, consider:
+
 - Custom PCB design using KiCad or EasyEDA
 - Perfboard (veroboard) with point-to-point soldering
 - Arduino shield design
@@ -213,6 +218,7 @@ For permanent installation, consider:
 #### Step 2: Enclosure Selection
 
 **Requirements:**
+
 - Size: Accommodate all components
 - Material: ABS plastic or metal for outdoor use
 - IP Rating: IP65 or higher for weather resistance
@@ -220,6 +226,7 @@ For permanent installation, consider:
 - Cable glands: For sensor and power cables
 
 **Recommended:**
+
 - Weatherproof junction box (150mm × 100mm × 75mm)
 - Transparent cover for viewing LCD
 - Wall or pole mounting brackets
@@ -246,17 +253,18 @@ Mounting tips:
 #### Step 4: Wiring
 
 **Best practices:**
+
 1. Use color-coded wires:
    - Red: +5V / +12V
    - Black: GND
    - Yellow: Analog signals
    - Green: Control signals
-   
+
 2. Keep wires organized:
    - Bundle related wires together
    - Use cable ties
    - Label all connections
-   
+
 3. Strain relief:
    - Use cable glands
    - Tie down wires inside enclosure
@@ -265,6 +273,7 @@ Mounting tips:
 #### Step 5: Soldering (if using perfboard)
 
 **Soldering tips:**
+
 1. Heat the pad and component lead together (2-3 seconds)
 2. Apply solder to the heated joint
 3. Remove iron and let cool without moving
@@ -273,6 +282,7 @@ Mounting tips:
 6. Look for solder bridges between pads
 
 **Component placement:**
+
 - Start with lowest profile components (resistors, diodes)
 - Then medium height (capacitors, IC sockets)
 - Finally tall components (connectors, relays)
@@ -284,17 +294,20 @@ Mounting tips:
 ### Step 1: Install Arduino IDE
 
 **Windows:**
-1. Download from: https://www.arduino.cc/en/software
+
+1. Download from: <https://www.arduino.cc/en/software>
 2. Run installer (arduino-ide-windows.exe)
 3. Follow installation wizard
 4. Install drivers when prompted
 
 **Mac:**
+
 1. Download .dmg file
 2. Drag Arduino to Applications folder
 3. Open from Applications
 
 **Linux:**
+
 1. Download .tar.xz file
 2. Extract: `tar -xf arduino-*.tar.xz`
 3. Run: `sudo ./install.sh`
@@ -310,22 +323,26 @@ Mounting tips:
 ### Step 3: Install Libraries
 
 **LiquidCrystal library** (usually pre-installed):
+
 1. `Sketch > Include Library > Manage Libraries`
 2. Search "LiquidCrystal"
 3. Click Install (if not already installed)
 
 **SoftwareSerial library** (pre-installed):
+
 - No action needed, included with Arduino IDE
 
 ### Step 4: Download Project Code
 
 **Option A: From GitHub**
+
 ```bash
-git clone https://github.com/yourusername/automatic-irrigation-system.git
+git clone https://github.com/adeniranprecious002-ux/automatic-irrigation-system.git
 cd automatic-irrigation-system
 ```
 
 **Option B: Manual Download**
+
 1. Download ZIP from GitHub
 2. Extract to your Arduino folder
 3. Open `src/irrigation_system/irrigation_system.ino`
@@ -339,6 +356,7 @@ cd automatic-irrigation-system
 5. Wait for "Done uploading" message
 
 **Troubleshooting upload issues:**
+
 - Check USB cable (try a different one)
 - Verify correct COM port selected
 - Close Serial Monitor if open
@@ -352,6 +370,7 @@ cd automatic-irrigation-system
 ### Why Calibrate?
 
 Sensors vary in sensitivity. Calibration ensures:
+
 - Accurate moisture readings
 - Proper threshold triggering
 - Reliable system operation
@@ -390,6 +409,7 @@ Sensors vary in sensitivity. Calibration ensures:
 #### Step 3: Calibrate Water Level Sensors
 
 For each sensor:
+
 ```
 1. Empty: Note reading
 2. 25% full: Note reading
@@ -427,6 +447,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 1: Power-On Test
 
 **Expected behavior:**
+
 - [ ] LCD backlight illuminates
 - [ ] Startup message displays
 - [ ] All sensors show readings
@@ -434,6 +455,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 - [ ] No unusual sounds
 
 **If fails:**
+
 - Check power connections
 - Verify polarity
 - Inspect for shorts
@@ -441,11 +463,13 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 2: LCD Display Test
 
 **Test procedure:**
+
 1. LCD should show: "Moist.=X% Res=X% Tnk=X%"
 2. Values should update every second
 3. Adjust potentiometer for best contrast
 
 **If fails:**
+
 - Check all 16 LCD connections
 - Verify 4-bit mode connections (D4-D7)
 - Test with simple LCD sketch
@@ -453,11 +477,13 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 3: Sensor Reading Test
 
 **For each sensor:**
+
 1. Dry condition: Should read low percentage (~0-20%)
 2. Wet condition: Should read high percentage (~80-100%)
 3. Values should change smoothly, not erratically
 
 **If fails:**
+
 - Check sensor power connections
 - Verify analog pin connections (A0, A3, A5)
 - Test sensor with multimeter (should vary 0-5V)
@@ -466,6 +492,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 4: Valve Control Test
 
 **Test procedure:**
+
 1. Simulate dry soil (low moisture reading)
 2. Ensure overhead tank has water (>30%)
 3. Valve should activate
@@ -473,6 +500,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 5. Relay should click
 
 **If fails:**
+
 - Check relay control signal (Pin 12)
 - Verify relay power
 - Test relay with LED first
@@ -481,6 +509,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 5: Pump Control Test
 
 **Test procedure:**
+
 1. Simulate low overhead tank (<20%)
 2. Ensure reservoir has water (>30%)
 3. Pump should activate
@@ -488,12 +517,14 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 5. Relay should click
 
 **If fails:**
+
 - Check relay control signal (Pin 13)
 - Same debugging as valve test
 
 #### Test 6: Alarm Test
 
 **Test procedure:**
+
 1. Simulate low reservoir (<30%)
 2. Simulate low overhead tank (<20%)
 3. Alarm should beep intermittently
@@ -501,6 +532,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 5. Pump should remain OFF (safety)
 
 **If fails:**
+
 - Check buzzer connections (Pin 1)
 - Test buzzer directly with 5V
 - Verify alarm logic in code
@@ -508,6 +540,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Test 7: Integration Test
 
 **Full system test:**
+
 1. Start with all tanks full, soil dry
 2. System should irrigate soil
 3. Monitor for several cycles
@@ -527,6 +560,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Step 1: Choose Installation Location
 
 **Considerations:**
+
 - [ ] Proximity to water source
 - [ ] Access to electrical power
 - [ ] Protection from weather
@@ -536,6 +570,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Step 2: Install Water System
 
 **Components to install:**
+
 1. **Reservoir/Water tank**
    - Ensure adequate capacity
    - Install water level sensor
@@ -564,12 +599,14 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 #### Step 3: Install Sensors
 
 **Soil moisture sensor:**
+
 1. Insert into soil at root depth (5-15cm)
 2. Ensure good soil contact
 3. Weatherproof connections
 4. Run cable to control box
 
 **Water level sensors:**
+
 1. Install at appropriate depths
 2. Secure to tank wall/bottom
 3. Weatherproof all connections
@@ -580,12 +617,14 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 **Safety first!**
 
 **12V DC system (recommended):**
+
 1. Install 12V power adapter indoors
 2. Run low-voltage cable to control box
 3. Use proper cable glands
 4. Add fuse for overcurrent protection
 
 **Solar option:**
+
 1. Mount solar panel facing sun
 2. Connect to charge controller
 3. Connect battery
@@ -605,6 +644,7 @@ moisturePercent = constrain(moisturePercent, 0, 100);
 **Day 1-3: Observation Period**
 
 Monitor system continuously:
+
 - Check valve operation
 - Verify pump cycles
 - Monitor soil moisture trends
@@ -614,6 +654,7 @@ Monitor system continuously:
 **Week 1: Fine-tuning**
 
 Adjust parameters:
+
 - Moisture thresholds
 - Watering duration
 - Tank levels
@@ -658,30 +699,35 @@ Adjust parameters:
 ### Troubleshooting Guide
 
 **Sensor reads constant value:**
+
 - Clean sensor surface
 - Check connections
 - Test with multimeter
 - Replace if faulty
 
 **Valve not opening:**
+
 - Check relay operation
 - Verify 12V supply
 - Check valve for blockage
 - Replace valve solenoid
 
 **Pump not running:**
+
 - Check relay
 - Verify power supply
 - Ensure pump not jammed
 - Check for dry run
 
 **LCD not displaying:**
+
 - Adjust contrast
 - Check power (5V)
 - Verify connections
 - Replace LCD if needed
 
 **System acting erratically:**
+
 - Check power supply stability
 - Look for loose connections
 - Inspect for water damage
@@ -752,4 +798,4 @@ After successful setup:
 
 **Congratulations!** Your automatic irrigation system is now ready for operation.
 
-For support, visit: [GitHub Issues](https://github.com/yourusername/automatic-irrigation-system/issues)
+For support, visit: [GitHub Issues](https://github.com/adeniranprecious002-ux/automatic-irrigation-system/issues)

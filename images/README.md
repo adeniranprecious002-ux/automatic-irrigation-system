@@ -5,10 +5,12 @@ This folder contains images and photos of the Automatic Irrigation System.
 ## Image Categories
 
 ### System Overview
+
 - `system-overview.jpg` - Complete system assembly
 - `installed-system.jpg` - System installed in garden/field
 
 ### Hardware Components
+
 - `arduino-board.jpg` - Arduino Uno with connections
 - `sensors.jpg` - Moisture sensors
 - `relay-module.jpg` - Relay module with wiring
@@ -17,18 +19,21 @@ This folder contains images and photos of the Automatic Irrigation System.
 - `solenoid-valve.jpg` - Solenoid valve assembly
 
 ### Circuit & Wiring
+
 - `breadboard-prototype.jpg` - Breadboard prototype
 - `final-circuit.jpg` - Final assembled circuit
 - `pcb-board.jpg` - PCB version (if available)
 - `wiring-closeup.jpg` - Detailed wiring connections
 
 ### Operation
+
 - `dry-soil-test.jpg` - System responding to dry soil
 - `watering-active.jpg` - Valve open, watering in progress
 - `lcd-display-readings.jpg` - LCD showing moisture levels
 - `alarm-triggered.jpg` - Low water alarm activated
 
 ### Installation
+
 - `sensor-placement.jpg` - Sensors installed in soil
 - `tank-setup.jpg` - Water tank and pump setup
 - `control-box.jpg` - Weatherproof enclosure
@@ -64,12 +69,14 @@ When adding new images:
 ## Image Tools
 
 **Recommended tools for editing:**
+
 - GIMP (free, open-source)
 - Paint.NET (Windows)
 - Preview (Mac)
 - ImageMagick (command-line)
 
 **For compression:**
+
 - TinyPNG (web-based)
 - ImageOptim (Mac)
 - FileOptimizer (Windows)
@@ -77,12 +84,14 @@ When adding new images:
 ## Circuit Diagrams
 
 For circuit diagrams and schematics, see:
+
 - `/hardware/schematics/` folder
 - Tools: Fritzing, KiCad, EasyEDA
 
 ## 3D Models
 
 For 3D printable enclosures and mounts:
+
 - `/hardware/3d-models/` folder
 - Format: STL, OBJ
 - Tools: Fusion 360, FreeCAD, Tinkercad
@@ -90,6 +99,7 @@ For 3D printable enclosures and mounts:
 ## Screenshots
 
 For software screenshots (IDE, serial monitor, etc.):
+
 - Use PNG format for crisp text
 - Highlight important areas
 - Include context (window titles, etc.)
@@ -99,6 +109,7 @@ For software screenshots (IDE, serial monitor, etc.):
 **Contributing Images:**
 
 If you've built this project and have photos to share:
+
 1. Fork the repository
 2. Add your images to this folder
 3. Update this README

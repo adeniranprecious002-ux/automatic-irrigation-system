@@ -22,6 +22,7 @@ This document provides detailed specifications for all components used in the Au
 ### Arduino Uno (ATmega328P)
 
 **General Specifications:**
+
 - Microcontroller: ATmega328P
 - Operating Voltage: 5V
 - Input Voltage (recommended): 7-12V
@@ -36,22 +37,26 @@ This document provides detailed specifications for all components used in the Au
 - Clock Speed: 16 MHz
 
 **Pin Configuration:**
+
 - Digital pins 0-13 (0-1 used for serial communication)
 - Analog pins A0-A5 (can also be used as digital I/O)
 - Power pins: 5V, 3.3V, GND, VIN, IOREF
 - Special pins: AREF, RESET
 
 **Power Consumption:**
+
 - Active mode: ~50mA @ 5V
 - Idle mode: ~20mA @ 5V
 
 **Interfaces:**
+
 - USB (Type B)
 - ICSP header
 - Power jack (2.1mm center-positive)
 
 **Purchase Information:**
-- Approximate Cost: $20-25 USD
+
+- Approximate Cost: #13, 000
 - Alternatives: Arduino Nano, Arduino Mega (for expansion)
 
 ---
@@ -73,6 +78,7 @@ This document provides detailed specifications for all components used in the Au
 | Probe Length | ~6cm |
 
 **Sensor Module Features:**
+
 - Dual output mode: Analog (A0) and Digital (D0)
 - Onboard LM393 comparator
 - Adjustable sensitivity via potentiometer
@@ -80,11 +86,13 @@ This document provides detailed specifications for all components used in the Au
 - Works with soil, sand, and various growing mediums
 
 **Output Characteristics:**
+
 - Dry soil: Higher resistance → Higher voltage (3-5V)
 - Wet soil: Lower resistance → Lower voltage (0-2V)
 - Typical range: 0-1023 (analog reading)
 
 **Calibration Values (Typical):**
+
 ```
 Air (completely dry): ~1023
 Dry soil: 700-900
@@ -94,13 +102,15 @@ Fully submerged: 0-200
 ```
 
 **Limitations:**
+
 - ⚠️ Corrosion: Nickel plating can corrode over time
 - ⚠️ Not waterproof: Module PCB should stay dry
 - ⚠️ Lifespan: ~1-2 years with continuous outdoor use
 - Improvement: Consider capacitive sensors for longer life
 
 **Purchase Information:**
-- Cost: $2-5 USD per sensor
+
+- Cost: #1, 700 USD per sensor
 - Quantity needed: 3 sensors
 - Better alternative: Capacitive soil moisture sensor v1.2
 
@@ -135,6 +145,7 @@ For non-contact water level measurement:
 | Echo Output | TTL signal (HIGH/LOW) |
 
 **Recommended for This Project:**
+
 - Use resistive sensors for simplicity
 - Ultrasonic sensors better for large tanks
 - Float switches for simple ON/OFF detection
@@ -181,20 +192,24 @@ For non-contact water level measurement:
 16. K (Cathode) - Backlight -
 
 **Operating Modes:**
+
 - 4-bit mode (uses D4-D7 only) ← Used in this project
 - 8-bit mode (uses D0-D7)
 
 **Backlight:**
+
 - LED backlight: 120-150mA @ 4.2V
 - Requires current limiting resistor (typically 220Ω)
 
 **Alternative Options:**
+
 - I2C LCD adapter (saves Arduino pins)
 - OLED display (better contrast, no backlight needed)
 
 **Purchase Information:**
-- Cost: $3-6 USD
-- With I2C module: $5-8 USD
+
+- Cost: # 3, 800
+- With I2C module: # 9, 000
 
 ---
 
@@ -215,12 +230,14 @@ For non-contact water level measurement:
 | Package | TO-220 |
 
 **Pin Configuration:**
+
 1. Input (left)
 2. Ground (middle)
 3. Output (right)
 (When facing the flat side with pins down)
 
 **Recommended Circuit:**
+
 ```
 Input: 0.33µF ceramic capacitor to GND
 Output: 0.1µF ceramic capacitor to GND
@@ -228,6 +245,7 @@ Heatsink recommended for >500mA
 ```
 
 **Power Dissipation:**
+
 ```
 P = (Vin - Vout) × Iload
 Example: (12V - 5V) × 0.5A = 3.5W
@@ -249,6 +267,7 @@ Example: (12V - 5V) × 0.5A = 3.5W
 | Safety | Short circuit & overload protection |
 
 **Load Calculation:**
+
 ```
 Water Pump: ~1A @ 12V = 12W
 Solenoid Valve: ~0.5A @ 12V = 6W
@@ -257,6 +276,7 @@ Total Peak: ~19W → Use 24W (2A) or 36W (3A) supply
 ```
 
 **Alternative: Solar Power**
+
 - Solar panel: 20W minimum (12V)
 - Battery: 12V 7Ah sealed lead-acid
 - Charge controller: 10A PWM/MPPT
@@ -281,23 +301,27 @@ Total Peak: ~19W → Use 24W (2A) or 36W (3A) supply
 | Trigger Mode | Active LOW or HIGH (jumper selectable) |
 
 **Terminal Connections:**
+
 - COM (Common)
 - NO (Normally Open)
 - NC (Normally Closed)
 
 **Control Pins:**
+
 - VCC: 5V
 - GND: Ground
 - IN1, IN2: Control signals from Arduino
 
 **Features:**
+
 - Onboard optocouplers for isolation
 - Freewheeling diodes for coil protection
 - Screw terminals for easy connection
 - LED indicators for relay status
 
 **Purchase Information:**
-- Cost: $3-5 USD for 2-channel
+
+- Cost: # 3, 000 for 2-channel
 - Alternatives: 4-channel, 8-channel modules
 
 ---
@@ -320,6 +344,7 @@ Total Peak: ~19W → Use 24W (2A) or 36W (3A) supply
 | Package | TO-92 |
 
 **Pin Configuration (BC547):**
+
 ```
 Flat face toward you:
 Pin 1: Collector
@@ -328,6 +353,7 @@ Pin 3: Emitter
 ```
 
 **Typical Application:**
+
 ```
 Arduino Pin → 1kΩ → Base
 Collector → Relay coil (+)
@@ -335,6 +361,7 @@ Emitter → GND
 ```
 
 **2N2222 (Alternative):**
+
 - Higher current capability: 800mA
 - Same pin configuration as BC547
 - Better for driving larger relays
@@ -355,9 +382,11 @@ Emitter → GND
 | Package | DO-41 |
 
 **Color Code:**
+
 - Black body with silver/white stripe (cathode)
 
 **Applications in This Project:**
+
 - Flyback protection across relay coils
 - Reverse polarity protection
 - Freewheeling diodes for motors
@@ -382,11 +411,13 @@ Emitter → GND
 | Noise Level | < 35 dB |
 
 **Recommended Models:**
+
 - Micro DC pump (RS-360SH)
 - Mini submersible pump 12V
 - Fountain pump (adjust flow rate)
 
 **Important Notes:**
+
 - ✓ Use submersible type for reservoir
 - ✓ Check flow rate matches your needs
 - ✓ Ensure waterproof rating for outdoor use
@@ -411,11 +442,13 @@ Emitter → GND
 | Operating Mode | Normally Closed (NC) |
 
 **Operating Principle:**
+
 - Energized: Valve opens, water flows
 - De-energized: Valve closes, water stops
 - Requires minimum pressure (typically 0.02 MPa)
 
 **Important Notes:**
+
 - ✓ Choose normally closed (NC) for safety
 - ✓ Match inlet size to water supply
 - ✓ Check pressure rating
@@ -423,7 +456,8 @@ Emitter → GND
 - ⚠️ Install arrow in flow direction
 
 **Purchase Information:**
-- Cost: $5-15 USD
+
+- Cost: # 10, 000
 - Common sizes: 1/4", 1/2", 3/4"
 
 ---
@@ -442,12 +476,14 @@ Emitter → GND
 | 10kΩ | 2-3 | Pull-up/pull-down resistors |
 
 **Specifications:**
+
 - Type: Carbon film or metal film
 - Power rating: 1/4W (0.25W) minimum
 - Tolerance: ±5% (gold band) or ±1% (brown band)
 - Package: Through-hole, axial
 
 **Color Code (for 220Ω):**
+
 - Band 1: Red (2)
 - Band 2: Red (2)
 - Band 3: Brown (×10)
@@ -468,6 +504,7 @@ Emitter → GND
 | Package | 3-pin through-hole |
 
 **Connection:**
+
 - Pin 1: 5V
 - Pin 2 (wiper): LCD V0
 - Pin 3: GND
@@ -491,6 +528,7 @@ Emitter → GND
 | 1000µF | 16V | 1 | Large reservoir (optional) |
 
 **Important:**
+
 - ⚠️ Observe polarity on electrolytic caps
 - Longer lead = positive (anode)
 - Stripe indicates negative (cathode)
@@ -512,6 +550,7 @@ Emitter → GND
 | Type | Active (built-in oscillator) |
 
 **Types:**
+
 - Active buzzer: Just apply voltage → beeps
 - Passive buzzer: Needs PWM signal → tones
 
@@ -537,6 +576,7 @@ Emitter → GND
 ### Breadboard (for Prototyping)
 
 **Specifications:**
+
 - Type: Solderless breadboard
 - Size: 830 tie-points (full-size)
 - Dimensions: ~165mm × 55mm
@@ -566,6 +606,7 @@ Emitter → GND
 ### Recommended Suppliers
 
 **International:**
+
 - **Amazon** - Fast shipping, higher prices
 - **AliExpress** - Low prices, slow shipping
 - **Mouser** - Quality components, electronics specialist
@@ -574,6 +615,7 @@ Emitter → GND
 - **Adafruit** - Quality, educational resources
 
 **Local:**
+
 - Check local electronics stores
 - Maker spaces and hackerspaces
 - University electronics labs (surplus)
@@ -584,25 +626,26 @@ Emitter → GND
 
 | Item | Quantity | Est. Cost (USD) |
 |------|----------|-----------------|
-| Arduino Uno | 1 | $20-25 |
-| Moisture Sensors | 3 | $6-15 |
-| LCD 16x2 | 1 | $3-6 |
-| Relay Module (2-ch) | 1 | $3-5 |
-| Water Pump 12V | 1 | $5-10 |
-| Solenoid Valve 12V | 1 | $5-15 |
-| Power Supply 12V 2A | 1 | $8-12 |
-| Buzzer | 1 | $1-2 |
-| Transistors (BC547) | 2 | $0.50 |
-| Diodes (1N4007) | 3 | $0.30 |
-| Resistors (assorted) | 10 | $1-2 |
-| Capacitors (assorted) | 10 | $2-3 |
-| Potentiometer 10kΩ | 1 | $0.50 |
-| Jumper Wires | 50 pcs | $3-5 |
-| Breadboard | 1 | $5-8 |
-| Enclosure | 1 | $5-10 |
-| **TOTAL** | | **$70-120** |
+| Arduino Uno | 1 | # 13, 000 |
+| Moisture Sensors | 3 | # 1, 700 |
+| LCD 16x2 | 1 | # 3, 800 |
+| Relay Module (2-ch) | 1 | # 3, 000 |
+| Water Pump 12V | 1 | # 6, 000 |
+| Solenoid Valve 12V | 1 | # 10, 000 |
+| Power Supply 12V 2A | 1 | # 6, 000 |
+| Buzzer | 1 | # 300 |
+| Transistors (BC547) | 2 | # 70 |
+| Diodes (1N4007) | 3 | # 20 |
+| Resistors (assorted) | 10 | # 20 |
+| Capacitors (assorted) | 10 | # 50 |
+| Potentiometer 10kΩ | 1 | # 380 |
+| Jumper Wires | Male - Male | # 1800 |
+| Breadboard | 1 | # 1, 000 |
+| Enclosure | 1 | #2, 500 |
+| **TOTAL** | | **# 49, 000 - 50, 000** |
 
 **Notes:**
+
 - Prices vary by region and supplier
 - Bulk purchases reduce cost
 - Quality affects price and longevity

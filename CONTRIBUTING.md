@@ -12,7 +12,7 @@ Before creating bug reports, please check existing issues. When creating a bug r
 - **Steps to Reproduce**: Detailed steps to reproduce the issue
 - **Expected Behavior**: What you expected to happen
 - **Actual Behavior**: What actually happened
-- **Environment**: 
+- **Environment**:
   - Arduino board model
   - Arduino IDE version
   - Operating system
@@ -33,12 +33,14 @@ Enhancement suggestions are welcome! Include:
 ### Pull Requests
 
 1. **Fork the Repository**
+
    ```bash
-   git clone https://github.com/yourusername/automatic-irrigation-system.git
+   git clone https://github.com/adeniranprecious002-ux/automatic-irrigation-system.git
    cd automatic-irrigation-system
    ```
 
 2. **Create a Branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -50,12 +52,14 @@ Enhancement suggestions are welcome! Include:
    - Update documentation if needed
 
 4. **Commit Your Changes**
+
    ```bash
    git add .
    git commit -m "Add feature: description of your changes"
    ```
 
 5. **Push to Your Fork**
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -80,6 +84,7 @@ Enhancement suggestions are welcome! Include:
 - Indent with 2 spaces (no tabs)
 
 **Example:**
+
 ```cpp
 const int SENSOR_PIN = A0;      // Sensor input pin
 int moistureLevel = 0;          // Current moisture level

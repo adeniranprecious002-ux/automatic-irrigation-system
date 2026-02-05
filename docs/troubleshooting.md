@@ -3,6 +3,7 @@
 ## Common Issues and Solutions
 
 ### Table of Contents
+
 - [Power Issues](#power-issues)
 - [LCD Display Problems](#lcd-display-problems)
 - [Sensor Issues](#sensor-issues)
@@ -17,6 +18,7 @@
 ### Arduino Not Powering On
 
 **Symptoms:**
+
 - No LED lights on Arduino
 - LCD display blank
 - No response when connected
@@ -43,6 +45,7 @@
 ### Power LED On, But Nothing Else Works
 
 **Solutions:**
+
 - Upload simple "Blink" sketch to test
 - Check if bootloader is intact
 - Verify TX/RX LEDs flash during upload
@@ -76,6 +79,7 @@
 **Step-by-step diagnosis:**
 
 1. **Check power**
+
    ```
    Measure voltage:
    - Pin 2 (VDD): Should be ~5V
@@ -88,6 +92,7 @@
    - If no change, check potentiometer connection
 
 3. **Verify connections**
+
    ```
    Critical pins:
    - RS → Pin 11
@@ -102,12 +107,14 @@
 ### LCD Shows Squares/Random Characters
 
 **Causes:**
+
 - Contrast set too high/low → Adjust potentiometer
 - Poor connections → Check jumper wires
 - Initialization error → Add delay in setup()
 - Wrong pin configuration → Verify code matches wiring
 
 **Solutions:**
+
 ```cpp
 // Add this in setup() before lcd.begin():
 delay(100);  // Wait for LCD to power up
@@ -119,6 +126,7 @@ delay(100);
 ### LCD Backlight Not Working
 
 **Check:**
+
 - Pin 15 (A) connected to 5V via 220Ω resistor
 - Pin 16 (K) connected to GND
 - Resistor not too high (use 220Ω max)
@@ -127,6 +135,7 @@ delay(100);
 ### LCD Shows Garbage or Flickering
 
 **Causes:**
+
 - Loose connections → Secure all wires
 - Interference → Keep LCD cables short
 - Insufficient power → Check 5V supply
@@ -150,6 +159,7 @@ delay(100);
    - Try wetting/drying sensor
 
 3. **Verify analog pin**
+
    ```cpp
    // Test analog reading:
    int value = analogRead(A3);
@@ -162,6 +172,7 @@ delay(100);
    - Should see voltage change
 
 **Solutions:**
+
 - Replace faulty sensor
 - Clean sensor probes (corrosion)
 - Check wiring to correct analog pin
@@ -170,11 +181,13 @@ delay(100);
 ### Sensor Reads Maximum (1023) Always
 
 **Causes:**
+
 - Sensor disconnected
 - Analog pin not connected
 - Sensor dead (open circuit)
 
 **Fix:**
+
 - Check all three connections (VCC, GND, OUT)
 - Verify correct analog pin (A0, A3, or A5)
 - Replace sensor
@@ -182,11 +195,13 @@ delay(100);
 ### Sensor Reads Minimum (0) Always
 
 **Causes:**
+
 - Output shorted to ground
 - Sensor damaged
 - Wrong wiring
 
 **Fix:**
+
 - Check for short circuits
 - Verify wiring diagram
 - Test sensor independently
@@ -194,12 +209,15 @@ delay(100);
 ### Erratic/Unstable Readings
 
 **Causes:**
+
 - Poor electrical contact
 - EMI interference
 - Faulty sensor
 
 **Solutions:**
+
 1. **Software filtering:**
+
    ```cpp
    // Add averaging:
    float getAverageMoisture() {
@@ -220,6 +238,7 @@ delay(100);
 ### Sensor Corroding Quickly
 
 **Prevention:**
+
 - Use capacitive sensors (longer lifespan)
 - Only power sensor when reading
 - Coat probes with protective lacquer
@@ -234,6 +253,7 @@ delay(100);
 **Check:**
 
 1. **Control signal**
+
    ```
    Measure Arduino pin (12 or 13):
    - Should be 5V when active
@@ -251,6 +271,7 @@ delay(100);
    - Should click and LED illuminate
 
 **Solutions:**
+
 - Replace relay module if defective
 - Check control pin configuration in code
 - Verify relay trigger mode (active HIGH/LOW)
@@ -260,6 +281,7 @@ delay(100);
 **Diagnosis:**
 
 1. **Check relay contacts**
+
    ```
    With relay OFF:
    - COM to NO: Should be open (infinite resistance)
@@ -281,6 +303,7 @@ delay(100);
    - Test pump/valve with direct 12V connection
 
 **Solutions:**
+
 - Rewire relay terminals correctly
 - Replace blown relay contacts
 - Check load for internal damage
@@ -288,11 +311,13 @@ delay(100);
 ### Relay Stays On Constantly
 
 **Causes:**
+
 - Pin stuck HIGH in code
 - Relay module damaged
 - Wrong trigger logic
 
 **Solutions:**
+
 ```cpp
 // Add explicit OFF states:
 void setup() {
@@ -336,6 +361,7 @@ if (condition) {
    - Spin impeller manually
 
 **Solutions:**
+
 - Replace clogged filter
 - Clean pump impeller
 - Verify 12V power supply provides enough current
@@ -359,6 +385,7 @@ if (condition) {
    - May not work without water pressure
 
 **Solutions:**
+
 - Ensure adequate water pressure
 - Check valve direction (arrow on body)
 - Clean valve if clogged
@@ -367,12 +394,14 @@ if (condition) {
 ### Water Leaks
 
 **Common leak points:**
+
 - Tubing connections
 - Valve seals
 - Pump seals
 - Sensor mounting points
 
 **Solutions:**
+
 - Use proper hose clamps
 - Apply thread seal tape (PTFE)
 - Replace worn O-rings
@@ -381,12 +410,14 @@ if (condition) {
 ### Insufficient Water Flow
 
 **Causes:**
+
 - Clogged filter
 - Air in system
 - Undersized tubing
 - Weak pump
 
 **Solutions:**
+
 - Clean/replace filters
 - Bleed air from system
 - Use larger diameter tubing
@@ -420,6 +451,7 @@ if (condition) {
 **Debugging steps:**
 
 1. **Add serial debugging:**
+
    ```cpp
    void setup() {
      Serial.begin(9600);
@@ -451,6 +483,7 @@ if (condition) {
 **Common issues:**
 
 1. **Missing lcd.clear()**
+
    ```cpp
    lcd.clear();  // Add before updating display
    lcd.setCursor(0, 0);
@@ -458,11 +491,13 @@ if (condition) {
    ```
 
 2. **Too fast updates**
+
    ```cpp
    delay(1000);  // Add delay between updates
    ```
 
 3. **Text overlap**
+
    ```cpp
    lcd.print("       ");  // Clear with spaces first
    lcd.setCursor(0, 0);
@@ -479,6 +514,7 @@ if (condition) {
    - Adjust as needed
 
 2. **Verify conditions**
+
    ```cpp
    // Add debug output:
    Serial.print("Moisture: ");
@@ -523,6 +559,7 @@ void loop() {
 ### Using Multimeter
 
 **Voltage checks:**
+
 ```
 5V rail: Should be 4.75V - 5.25V
 Sensor output: 0V - 5V (variable)
@@ -531,6 +568,7 @@ Pin states: 0V or 5V
 ```
 
 **Continuity checks:**
+
 - GND connections: Should beep
 - Power connections: Verify no shorts
 - Signal traces: Check for breaks
@@ -538,6 +576,7 @@ Pin states: 0V or 5V
 ### Component Replacement Order
 
 If multiple components fail:
+
 1. Replace cheapest first (jumper wires)
 2. Then sensors (~$2-5 each)
 3. Then relay module (~$3-5)
@@ -585,6 +624,7 @@ If multiple components fail:
 ### When Asking for Help
 
 Include:
+
 - Detailed problem description
 - What you've already tried
 - Error messages (exact text)
