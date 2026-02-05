@@ -37,6 +37,7 @@ Irrigation is the artificial application of water to soil for the purpose of:
 ### Types of Irrigation Systems
 
 #### 1. Surface Irrigation
+
 - Water flows over the soil surface
 - Gravity-driven
 - Examples: Flood, furrow, border irrigation
@@ -44,18 +45,21 @@ Irrigation is the artificial application of water to soil for the purpose of:
 - **Disadvantages**: High water waste, uneven distribution
 
 #### 2. Sprinkler Irrigation
+
 - Water sprayed through air
 - Mimics natural rainfall
 - **Advantages**: Even distribution, suitable for varied terrain
 - **Disadvantages**: Water loss due to evaporation
 
 #### 3. Drip Irrigation
+
 - Water delivered directly to root zone
 - Most efficient method
 - **Advantages**: Minimal water waste, precise application
 - **Disadvantages**: Higher initial cost, requires maintenance
 
 #### 4. Sub-surface Irrigation
+
 - Water applied below soil surface
 - Reduces evaporation
 - **Advantages**: Efficient, reduces weed growth
@@ -64,6 +68,7 @@ Irrigation is the artificial application of water to soil for the purpose of:
 ### This Project's Approach
 
 Our system uses a **gravity-fed drip irrigation** approach with:
+
 - Overhead tank for pressure
 - Solenoid valve for control
 - Soil moisture sensors for automation
@@ -78,22 +83,27 @@ Our system uses a **gravity-fed drip irrigation** approach with:
 Soil water content can be expressed in several ways:
 
 #### Volumetric Water Content (θv)
+
 ```
 θv = Volume of water / Total volume of soil
 ```
+
 Typical range: 0.0 - 0.6 (0% - 60%)
 
 #### Gravimetric Water Content (θg)
+
 ```
 θg = Mass of water / Mass of dry soil
 ```
 
 #### Field Capacity
+
 - Maximum water soil can hold after drainage
 - Optimal for most plants
 - Typically 20-40% volumetric water content
 
 #### Permanent Wilting Point
+
 - Moisture level below which plants cannot recover
 - Typically 10-20% volumetric water content
 - Must be avoided
@@ -111,16 +121,19 @@ Typical range: 0.0 - 0.6 (0% - 60%)
 Different plants need different moisture levels:
 
 **High Water Needs (70-100% field capacity):**
+
 - Rice
 - Lettuce
 - Celery
 
 **Moderate Water Needs (50-70% field capacity):**
+
 - Tomatoes
 - Corn
 - Beans
 
 **Low Water Needs (30-50% field capacity):**
+
 - Succulents
 - Cacti
 - Drought-resistant plants
@@ -128,10 +141,12 @@ Different plants need different moisture levels:
 ### Evapotranspiration (ET)
 
 Water loss through:
+
 1. **Evaporation**: From soil surface
 2. **Transpiration**: Through plant leaves
 
 **Factors affecting ET:**
+
 - Temperature
 - Humidity
 - Wind speed
@@ -139,6 +154,7 @@ Water loss through:
 - Plant type and stage
 
 **Reference ET calculation (simplified):**
+
 ```
 ET = K × ET₀
 
@@ -163,6 +179,7 @@ Wet soil: Low resistance (<10kΩ)
 ```
 
 **Circuit:**
+
 ```
     VCC (5V)
      │
@@ -176,40 +193,47 @@ Wet soil: Low resistance (<10kΩ)
 ```
 
 **Output voltage:**
+
 ```
 Vout = VCC × (Rsensor / (Rfixed + Rsensor))
 ```
 
-#### Advantages
-- Low cost ($2-5)
+#### Advantages of Resistive Sensors
+
+- Low cost (# 1, 700)
 - Simple to use
 - Direct analog output
 
-#### Disadvantages
+#### Disadvantages of Resistive Sensors
+
 - Corrosion over time
 - Less accurate than capacitive
 - Requires sensor to be powered continuously
 
 ### Capacitive Moisture Sensors
 
-#### Working Principle
+#### Working Principle of Capacitive Moisture Sensor
 
 Measures the dielectric constant of soil:
+
 - Dry soil: Low capacitance
 - Wet soil: High capacitance (water has high dielectric constant)
 
 **Frequency-based detection:**
+
 - Sensor generates oscillating signal
 - Frequency changes with soil moisture
 - Microcontroller measures frequency
 
-#### Advantages
+#### Advantages of Capacitive Sensors
+
 - No corrosion (no current through probes)
 - More accurate
 - Longer lifespan (2-3 years vs 6-12 months)
 
-#### Disadvantages
-- Higher cost ($5-10)
+#### Disadvantages of Capacitive Sensors
+
+- Higher cost (# 1, 800)
 - Slightly more complex circuit
 
 ### Water Level Sensors
@@ -217,6 +241,7 @@ Measures the dielectric constant of soil:
 #### Resistive Water Level Sensors
 
 Exposed traces on PCB:
+
 - Water bridges traces
 - Resistance decreases
 - More water = lower resistance
@@ -224,6 +249,7 @@ Exposed traces on PCB:
 #### Ultrasonic Distance Sensors
 
 Measure distance to water surface:
+
 ```
 Distance = (Speed of sound × Time) / 2
 
@@ -231,6 +257,7 @@ Speed of sound in air ≈ 343 m/s
 ```
 
 **HC-SR04 example:**
+
 1. Send 10µs trigger pulse
 2. Sensor emits 40kHz ultrasonic burst
 3. Measures echo return time
@@ -239,6 +266,7 @@ Speed of sound in air ≈ 343 m/s
 #### Float Switches
 
 Simple on/off detection:
+
 - Mechanical switch
 - Floats when water present
 - Binary output (HIGH/LOW)
@@ -246,6 +274,7 @@ Simple on/off detection:
 ### Analog-to-Digital Conversion (ADC)
 
 Arduino Uno has 10-bit ADC:
+
 ```
 Resolution: 2¹⁰ = 1024 levels (0-1023)
 Voltage per step: 5V / 1024 ≈ 4.88mV
@@ -255,6 +284,7 @@ Voltage = (ADC_value / 1023) × 5.0V
 ```
 
 **Example:**
+
 ```
 ADC reads 512
 Voltage = (512 / 1023) × 5.0V ≈ 2.5V
@@ -279,6 +309,7 @@ This system implements **negative feedback control**:
 ```
 
 **Components:**
+
 1. **Setpoint**: Desired moisture level (DRY_SOIL_THRESHOLD)
 2. **Sensor**: Measures actual moisture
 3. **Controller**: Arduino compares actual vs. setpoint
@@ -298,12 +329,14 @@ if (moisture < THRESHOLD) {
 ```
 
 **Characteristics:**
+
 - Simple implementation
 - Two states only (ON/OFF)
 - Hysteresis prevents oscillation
 - Good for discrete loads (pumps, valves)
 
 **Hysteresis:**
+
 ```
 Turn ON at:  moisture ≤ 20%
 Turn OFF at: moisture ≥ 100%
@@ -334,6 +367,7 @@ The system operates as a finite state machine:
 ```
 
 **States:**
+
 1. **IDLE**: Monitoring sensors
 2. **WATERING**: Valve open, irrigating
 3. **PUMPING**: Pump on, filling tank
@@ -354,6 +388,7 @@ Error = Setpoint - Actual
 ```
 
 **Benefits:**
+
 - Smoother control
 - Faster response
 - Reduced overshoot
@@ -365,6 +400,7 @@ Error = Setpoint - Actual
 ### Water Conservation
 
 **Efficiency metrics:**
+
 ```
 Water Use Efficiency = Water used by plant / Total water applied
 
@@ -374,6 +410,7 @@ This system: 70-85%
 ```
 
 **Savings calculations:**
+
 ```
 Manual watering: 10L/day (overwatering)
 Automated system: 6L/day (optimized)
@@ -423,6 +460,7 @@ Where:
 ### Water Quality
 
 **Considerations:**
+
 - **pH**: 6.0-7.5 ideal for most plants
 - **Salinity**: Avoid high salt content
 - **Particulates**: Filter to prevent clogging
@@ -444,6 +482,7 @@ R = Resistance (Ohms)
 ```
 
 **Application in resistor calculations:**
+
 ```
 LED circuit:
 Supply = 5V
@@ -465,6 +504,7 @@ P = Power (Watts)
 ```
 
 **Example - 7805 regulator:**
+
 ```
 Input: 12V
 Output: 5V
@@ -480,17 +520,20 @@ P = (12V - 5V) × 0.5A = 3.5W
 #### Electromagnetic Relay
 
 **Working principle:**
+
 1. Current through coil creates magnetic field
 2. Magnetic field attracts armature
 3. Armature moves contacts
 4. Circuit switches
 
 **Coil specifications:**
+
 - Voltage: 5V DC
 - Current: 70-80mA
 - Resistance: ~70Ω
 
 **Contact specifications:**
+
 - Rating: 10A @ 250VAC or 30VDC
 - Isolation: >1000V (between coil and contacts)
 
@@ -511,6 +554,7 @@ When Base = LOW (0V):
 ```
 
 **Base resistor calculation:**
+
 ```
 Ic (collector current) = 80mA (relay coil)
 hFE (gain) = 100 (typical for BC547)
@@ -529,6 +573,7 @@ Use 1kΩ for better saturation
 **Flyback diode across inductive loads:**
 
 When relay/motor turns off:
+
 - Collapsing magnetic field generates reverse voltage
 - Can reach 100V+ and damage transistor/IC
 - Diode provides safe path for this current
@@ -559,6 +604,7 @@ Heat dissipated = 3.5W!
 ```
 
 **Switching regulators** (more efficient):
+
 - Buck converter (step-down)
 - Efficiency: 80-95%
 - Less heat, more complex
@@ -566,16 +612,19 @@ Heat dissipated = 3.5W!
 ### Noise and Filtering
 
 **Decoupling capacitors:**
+
 - Remove high-frequency noise
 - Placed near IC power pins
 - Typical: 0.1µF ceramic
 
 **Bulk capacitors:**
+
 - Store energy for sudden current demands
 - Smooth out voltage ripples
 - Typical: 100µF-1000µF electrolytic
 
 **Ground loops:**
+
 - Create noise and interference
 - Solution: Star ground topology
 - Single common ground point
@@ -600,6 +649,7 @@ Average voltage = 5V × 0.2 = 1V
 ### Response Time
 
 **Current system:**
+
 - Sensor reading: 100ms
 - Processing: <10ms
 - Relay activation: 10-20ms
@@ -608,6 +658,7 @@ Average voltage = 5V × 0.2 = 1V
 ### Accuracy
 
 **Factors affecting accuracy:**
+
 1. **Sensor calibration**: ±5% typical
 2. **ADC resolution**: 10-bit (0.5% of range)
 3. **Temperature drift**: ±2% per 10°C
@@ -620,6 +671,7 @@ Average voltage = 5V × 0.2 = 1V
 **MTBF (Mean Time Between Failures):**
 
 Components by reliability:
+
 1. Arduino: >50,000 hours
 2. Sensors: 8,000-15,000 hours
 3. Relay: 100,000 cycles
@@ -628,6 +680,7 @@ Components by reliability:
 **Weakest link:** Moisture sensors (corrosion)
 
 **Improvement strategies:**
+
 - Use capacitive sensors
 - Implement redundancy
 - Regular maintenance
@@ -639,7 +692,7 @@ Components by reliability:
 
 ### Standards and Specifications
 
-- Arduino Language Reference: https://www.arduino.cc/reference/en/
+- Arduino Language Reference: <https://www.arduino.cc/reference/en/>
 - ATmega328P Datasheet: Atmel Corporation
 - Irrigation Engineering Standards: ASABE (American Society of Agricultural and Biological Engineers)
 

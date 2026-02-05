@@ -8,20 +8,20 @@ An Arduino-based automatic irrigation system that monitors soil moisture levels 
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [System Components](#system-components)
-- [Circuit Diagram](#circuit-diagram)
-- [Installation](#installation)
-- [Usage](#usage)
-- [How It Works](#how-it-works)
-- [Configuration](#configuration)
-- [Project Structure](#project-structure)
-- [Testing](#testing)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Overview](#-overview)
+- [Features](#-features)
+- [System Components](#-system-components)
+- [Circuit Diagram](#-circuit-diagram)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [How It Works](#️-how-it-works)
+- [Configuration](#-configuration)
+- [Project Structure](#-project-structure)
+- [Testing](#-testing)
+- [Future Enhancements](#-future-enhancements)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
 
 ## 🌱 Overview
 
@@ -117,12 +117,14 @@ See the [Circuit Diagram](docs/circuit-diagram.md) for detailed schematics.
 ### Steps
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/yourusername/automatic-irrigation-system.git
+   git clone https://github.com/adeniranprecious002-ux/automatic-irrigation-system.git
    cd automatic-irrigation-system
    ```
 
 2. **Open the Arduino sketch**
+
    ```bash
    # Open Arduino IDE and load the sketch
    arduino-ide src/irrigation_system/irrigation_system.ino
@@ -264,6 +266,7 @@ Edit these values in the code (`src/irrigation_system/irrigation_system.ino`):
 1. Insert sensor in completely dry soil → note reading
 2. Insert sensor in saturated soil → note reading
 3. Adjust the conversion formula:
+
    ```cpp
    float moistureLevel = map(moisture, DRY_READING, WET_READING, 0, 100);
    ```
@@ -313,18 +316,21 @@ automatic-irrigation-system/
 Before full system integration, test each component:
 
 #### 1. LCD Display Test
+
 ```cpp
 // Upload the test sketch from examples/lcd-test/
 // Verify all characters display correctly
 ```
 
 #### 2. Sensor Test
+
 ```cpp
 // Upload examples/sensor-test/sensor_test.ino
 // Monitor serial output for sensor readings
 ```
 
 #### 3. Relay Test
+
 ```cpp
 // Manually trigger relays
 // Listen for clicking sound
@@ -355,7 +361,7 @@ Before full system integration, test each component:
 - [ ] **Multi-zone Support**: Control multiple irrigation zones
 - [ ] **Data Logging**: SD card storage for historical data
 - [ ] **Solar Power**: Solar panel power option
-- [ ] **Advanced Sensors**: 
+- [ ] **Advanced Sensors**:
   - Temperature and humidity sensors
   - pH and EC sensors for soil quality
 - [ ] **Machine Learning**: Predictive irrigation scheduling
@@ -380,6 +386,7 @@ Contributions are welcome! Please follow these steps:
 5. Open a Pull Request
 
 Please ensure:
+
 - Code follows Arduino style guidelines
 - Comments explain complex logic
 - Testing has been performed
@@ -391,16 +398,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Original Project**: Designed and implemented as a final year project at the University of Abuja
-- **Supervisor**: Engr. Dr. I. Bebeji, for guidance and supervision
-- **Department**: Electrical/Electronics Engineering, University of Abuja
-- **Arduino Community**: For excellent libraries and support
-- **Open Source Contributors**: For inspiration and code examples
+## Acknowledgments
+
+- **Original Project**: Onuche Carney Enyo-Ojo, University of Abuja (2024)
+- **Supervisor**: Engr. Dr. I. Bebeji
+- **My Contributions**: [ "Arduino programming, circuit design, sensor integration, documentation"]
 
 ## 📞 Contact & Support
 
-- **Issues**: Please use the [GitHub Issues](https://github.com/yourusername/automatic-irrigation-system/issues) page
-- **Discussions**: Join our [Discussions](https://github.com/yourusername/automatic-irrigation-system/discussions) for questions and ideas
+- **Issues**: Please use the [GitHub Issues](https://github.com/adeniranprecious002-ux/automatic-irrigation-system/issues) page
+- **Discussions**: Join our [Discussions](https://github.com/adeniranprecious002-ux/automatic-irrigation-system/discussions) for questions and ideas
 
 ## 📊 Project Statistics
 
@@ -411,8 +418,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Sensors**: 3 analog moisture sensors
 - **Power Consumption**: < 5W (idle), ~15W (active)
 
-## Star ⭐ this repository if you find it helpful!
-
 ---
 
 **Note**: This is an educational project. For commercial agricultural applications, consult with agricultural engineers and comply with local regulations.
+
+## Star ⭐ this repository if you find it helpful
