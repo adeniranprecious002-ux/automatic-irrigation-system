@@ -1,0 +1,61 @@
+# Arduino
+*.hex
+*.eep
+*.elf
+*.lst
+*.map
+*.sym
+*.lss
+*.eeprom
+*.bin
+*.out
+
+# Build files
+build/
+*.o
+*.a
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Simulation files
+*.pdsprj.DESKTOP*
+*.PWI
+*.workspace
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+
+# Python (if used for testing/automation)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Libraries (tracked separately if needed)
+# libraries/
+
+# Personal notes
+notes.txt
+todo.md
+PRIVATE/
